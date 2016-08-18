@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="chiboy" content="stock trend about price">
+  <link rel="stylesheet" src="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+  <script type='text/javascript' src='//d3js.org/d3.v4.min.js'>
+  </script>
+   <script src="/socket.io/socket.io.js"></script>
+  <title>Stock Trend</title>
+ </head>
+ <body>
+	<div id='trendG'>
+		<svg>
+		</svg>
+	</div>
+	<div id='stockS'>
+		<div id = 'adds'><form>
+					<input id='symbol'type='text'autocomplete="off"></input>
+					<span>
+						<button type='submit'>
+							add
+						</button>
+					</span>
+				</form>
+				<p id='message'></p>
+		</div>
+	</div>
+ </body>
+	
+ <script type='text/javascript' src='/common/ajaxFunctions_client.js'>
+	</script>
+ <script type='text/javascript' src='/controllers/param.js'>
+	</script>
+ <script type='text/javascript' src='/controllers/remove_add_client.js'>
+	</script>
+<script type='text/javascript' src='/controllers/stockInf.js'>
+	</script>
+ <script type='text/javascript' src='/controllers/chart.js'>
+	</script>
+ <script type='text/javascript' src='/controllers/initialize.js'>
+	</script>
+</html>
