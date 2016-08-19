@@ -40,7 +40,7 @@ module.exports = function(req,res,method,callback){
 		if(xmlhttp.readyState === 4 && xmlhttp.status !== 200){
 			console.error('the ajaxFunction:the request is failed with code '+xmlhttp.status
 						+'\n url: '+url);
-			res.json({value:null,messagel:'system error ,please wait for a while'});
+			res.json({value:null,message:'the symbol is error or not existed.please check the symbol.'});
 		}
 	}
 	xmlhttp.open(method,url,true);

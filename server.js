@@ -22,6 +22,9 @@ mongoose.connect(monURI);
 app.use('/controllers',express.static(process.cwd()+'/app/controllers'));
 app.use('/common',express.static(process.cwd()+'/app/common'));
 
+app.get('/',function(req,res){
+		res.sendFile(process.cwd()+'/public/index.html');
+	});
 io.on('connection',function(socket){
 	route(app,io);
 });

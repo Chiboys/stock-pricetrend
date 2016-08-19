@@ -3,9 +3,6 @@ var ajaxFunction = require('../common/ajaxFunction');
 var Interact = require('../controllers/interact');
 var interact = new Interact();
 module.exports = function(app,socket){
-	app.get('/',function(req,res){
-		res.sendFile(process.cwd()+'/public/index.html');
-	});
 	app.get('/search',function(req,res){
 		ajaxFunction(req,res,'get');
 	});

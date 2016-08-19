@@ -11,7 +11,6 @@ var padding = {
 var svg = d3.select('svg')
 	.attr('width',width)
 	.attr('height',height);
-	//.attr('transform','translate('+margin.left+','+margin.top+')');
 var chartW = width - padding.left - padding.right;
 var chartH = height - padding.top - padding.bottom;
 var axisG = svg.append('g');
@@ -53,6 +52,8 @@ var color = d3.schemaCategory20;var ordinal = 1;
 /**********stockInf.js***********/
 var addBut = document.getElementById('adds');
 var stocks = document.getElementById('stockS');
+stocks.setAttribute('align','center');
+stocks.setAttribute('width','80%');
 /*********************/
 
 /*********delete+add************/

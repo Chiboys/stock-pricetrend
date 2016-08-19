@@ -1,6 +1,8 @@
 function add(e){
 	e.preventDefault();
 	var symbol = input.value;
+	input.value = '';
+	message.innerHTML = '';
 	if(symbolArr.indexOf(symbol) !== -1){
 		message.innerHTML = 'the stock has exist.';
 		return ;

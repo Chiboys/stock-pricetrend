@@ -5,22 +5,34 @@
   <meta name="Generator" content="EditPlus®">
   <meta name="chiboy" content="stock trend about price">
   <link rel="stylesheet" src="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
   <script type='text/javascript' src='//d3js.org/d3.v4.min.js'>
   </script>
    <script src="/socket.io/socket.io.js"></script>
   <title>Stock Trend</title>
  </head>
+ <style type='text/css'>
+	#tredg{
+		background-color:;
+		width: 1000px;
+		height: 1200px;
+		margin-left: auto;
+		margin-right: auto
+	}
+	#svg{
+		width: 800px;
+		height: 600px;
+		background-color: #666;
+	}
+ </style>
  <body>
-	<div id='trendG'>
-		<svg>
+	<div id='trendg'>
+		<svg id='svg'>
 		</svg>
 	</div>
 	<div id='stockS'>
-		<div id = 'adds'>
-				<form>
-					<input id='symbol'type='text'autocomplete="off">
-					
-					</input>
+		<div id = 'adds'><form>
+					<input id='symbol'type='text'autocomplete="off"></input>
 					<span>
 						<button type='submit'>
 							add
