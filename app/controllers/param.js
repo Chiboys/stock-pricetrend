@@ -78,7 +78,7 @@ var color = d3.schemaCategory20;var ordinal = 1;
 				.append('div')
 				.attr('class','ul_stocks')
 				.style('width','150px')
-				.style('background-color','red');
+				.style('background-color','steelblue');
 		var lineTol = tooltipG.append('line')
 					.style('stroke','black')
 					 .style('stroke-width',1)

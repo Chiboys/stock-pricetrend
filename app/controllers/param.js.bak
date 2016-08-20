@@ -99,6 +99,7 @@ var color = d3.schemaCategory20;var ordinal = 1;
 						return;
 						//if no end,the tooltip will not be used
 					}
+					tooltip.style('opacity',0.8);
 					tooltipG.style('display',null);	
 				})
 				.on('mouseout',function(d){
@@ -141,7 +142,7 @@ var color = d3.schemaCategory20;var ordinal = 1;
 					}else{
 						tooltip.style('top',(event.y+50)+'px');
 					}
-					tooltip.style('opacity',0.8);
+					
 				});
 		//first the line and circle
 	/*********************/

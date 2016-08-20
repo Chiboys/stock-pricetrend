@@ -12,6 +12,9 @@
   <title>Stock Trend</title>
  </head>
  <style type='text/css'>
+	body{
+		background-color:
+	}
 	.ul_stocks{
 		position:absolute;
 	}
@@ -21,8 +24,8 @@
 		
 	}
 	svg{
-			margin-left:20%;
-			margin-right:20%;
+			margin-left:200px;
+			margin-right:200px;
 			margin-top:30px;
 			margin-bottom:10px;
 	}
