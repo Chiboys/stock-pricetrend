@@ -10,7 +10,7 @@ var app = express();
 
 app.use(parser.urlencoded({extended:false}));
 
-dotenv.load();
+//dotenv.load();
 
 var http = Http.Server(app);
 var io = Io(http);
