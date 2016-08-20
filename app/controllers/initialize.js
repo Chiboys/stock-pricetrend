@@ -8,7 +8,8 @@ function initialize(){
 		console.log('initialize array\n : ');
 		console.log(arr);
 		arr.forEach(function(ele){
-			var url = '/search?symbol='+ele+'&start_date='+dateB+'&&end_date='+dateN;		
+			var url = '/search?symbol='+ele+'&start_date='+dateB+'&&end_date='+dateN;	
+			console.log(url);
 			ajaxFunctions.request(method,url,chart);
 		});
 	}
@@ -21,3 +22,6 @@ socket.on('addNewStock',function(json){
 	chart(json);
 });
 ajaxFunctions.ready(initialize);
+socket.on('delete stocks',function(symbol){
+	delet_content(symbol+'_inf')
+});

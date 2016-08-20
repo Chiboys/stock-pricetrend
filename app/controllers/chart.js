@@ -12,12 +12,13 @@ var chart = function(obj){
 		  }
 		*/
 	var symbol = obj.symbol;
-	var data = obj.data;
+	
 	var g = chartG.append('g')
 				  .attr('id',symbol);
-	data = data.map(function(d){
+	obj.data = obj.data.map(function(d){
 				return [parseT(d[0]),d[1]];
 			});
+	var data = obj.data;
 	var line = d3.line()
 				.x(function(d){
 					return xScale(d[0]);		
@@ -30,6 +31,8 @@ var chart = function(obj){
     	.attr('fill','none')
 		.attr('stroke','black')
 		.attr('d',line(data));
+	
+
 	ordinal++;
 	stockInf(obj);
 };

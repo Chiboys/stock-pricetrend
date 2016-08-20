@@ -13,20 +13,12 @@ var chart = function(obj){
 		*/
 	var symbol = obj.symbol;
 	var data = obj.data;
-	
-	var max = d3.max(data,function(d){
-		return d[1];
-	});
-	if(max > priceMax){
-		priceMax = parseInt(max/0.75);
-		yScale.range([priceMax,0]);
-	}
-
 	var g = chartG.append('g')
 				  .attr('id',symbol);
-	data = data.map(function(d){
+	obj.data = data.map(function(d){
 				return [parseT(d[0]),d[1]];
 			});
+
 	var line = d3.line()
 				.x(function(d){
 					return xScale(d[0]);		
@@ -39,6 +31,8 @@ var chart = function(obj){
     	.attr('fill','none')
 		.attr('stroke','black')
 		.attr('d',line(data));
+	
+
 	ordinal++;
 	stockInf(obj);
 };

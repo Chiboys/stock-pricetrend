@@ -7,7 +7,6 @@ module.exports = function(){
 		function callback(result){
 			stock.stockName = req.query.symbol;
 			//stock.ip = req.headers["x-forwarded-for"];
-			console.log(typeof result);
 			socket.emit('addNewStock',result);
 			stock.save(function(err){
 				if(err){ throw err;}
@@ -18,13 +17,19 @@ module.exports = function(){
 		ajaxFunction(req,res,'get',callback,[stock,socket]);
 	
 	};
-	this.delet = function(req,res){
-		Stock.findOneAndRemove({'stockName':req.req.query.symbol},{'passRawResult':false},function(err,doc){
+	this.delet = function(req,res,socket){
+		Stock.findOneAndRemove({'stockName':req.query.symbol},{'passRawResult':false},function(err,doc){
 			if(err){ throw err;}
 			//特定情况，这里删除的一定是有的，这是由前端决定的。
+			if(doc === null){
+				res.json({value:null,message:'the stock has deleted successfully.'});
+				return console.log('the stock: null. has been deleted.');
+				
+			}
 			console.log('the stock: '+doc.stockName+" has been deleted.");
 			res.json({value:doc.stockName,message:'the stock has deleted successfully.'})
 		});
+		socket.emit('delete stocks',req.query.symbol);
 	};
 	this.find = function(req,res){
 		Stock.find({},function(err,docs){
