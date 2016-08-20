@@ -16,12 +16,9 @@ function add(e){
 }
 addBut.firstChild.addEventListener('submit',add);
 function delet(id){
-	//remove the node 
-	var div = document.getElementById(id);
+	//delet_content(id)
+	delete cache[id];
 	id = id.replace('_inf','');
-	var g = document.getElementById(id);
-	(g.parentNode).removeChild(g);
-	(div.parentNode).removeChild(div);
 	symbolArr.splice(symbolArr.indexOf(id),1);
 	//remove the symbol in db
 	//set click on span element
@@ -30,4 +27,13 @@ function delet(id){
 	}
 	var url = '/delete?symbol='+id;
 	ajaxFunctions.request('delete',url,callback);
+}
+function delet_content(id){
+	//remove the node 
+		var div = document.getElementById(id);
+		id = id.replace('_inf','');
+		var g = document.getElementById(id);
+		(g.parentNode).removeChild(g);
+		(div.parentNode).removeChild(div);
+		
 }

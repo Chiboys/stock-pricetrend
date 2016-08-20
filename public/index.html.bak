@@ -12,17 +12,19 @@
   <title>Stock Trend</title>
  </head>
  <style type='text/css'>
-	#tredg{
-		background-color:;
-		width: 1000px;
-		height: 1200px;
-		margin-left: auto;
-		margin-right: auto
+	.ul_stocks{
+		position:absolute;
 	}
-	#svg{
-		width: 800px;
-		height: 600px;
-		background-color: #666;
+	svg{
+		float:center;
+		clear:both;
+		
+	}
+	svg,absolute;{
+			margin-left:200px;
+			margin-right:200px;
+			margin-top:30px;
+			margin-bottom:10px;
 	}
  </style>
  <body>

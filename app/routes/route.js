@@ -13,7 +13,7 @@ module.exports = function(app,socket){
 		interact.add(req,res,socket);
 	});
 	app.delete('/delete',function(req,res){
-		interact.delet(req,res);	
+		interact.delet(req,res,socket);	
 	});
 	
 }
