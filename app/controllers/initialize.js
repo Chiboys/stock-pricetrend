@@ -12,7 +12,6 @@ function initialize(){
 			console.log(url);
 			ajaxFunctions.request(method,url,chart);
 		});
-		end = true;
 	}
 	ajaxFunctions.request(method,url,callback);
 

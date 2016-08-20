@@ -18,7 +18,6 @@ var stockInf = function(json){
 	var data = json.data.map(function(ele){
 			return ele[1];//we juse store the price and we'll store date with key 'date'
 		});
-	symbolArr.push(json.symbol);
 	//tooltip
 	cache[json.symbol] = data;
 	if(!cache.hasOwnProperty('date')){
@@ -37,6 +36,7 @@ var stockInf = function(json){
 	//add the node of stock to tooltip
 	tooltip.append('span')
 			.attr('id',json.symbol+'_tool');
+	tooltip.append('br');
 	
 //    var li = document.createElement('li');
 //    var span = document.createElement('span');

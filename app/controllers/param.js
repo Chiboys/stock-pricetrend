@@ -9,7 +9,7 @@ var message =document.getElementById('message');
 var width = 800;
 var height = 600;
 var margin = {
-		top:10,right:200,bottom:10,left:200
+		top:30,right:200,bottom:10,left:200
 	};
 var padding = {
 		top:50,right:100,bottom:50,left:100
@@ -95,15 +95,19 @@ var color = d3.schemaCategory20;var ordinal = 1;
 				.attr('id','felling')
 				.attr('transform','translate('+padding.left+','+padding.top+')')
 				.on('mouseover',function(d){
-					tooltipG.style('display',null);															
+					if(symbolArr.length === 0){
+						return;
+						//if no end,the tooltip will not be used
+					}
 					tooltip.style('opacity',0.8);
+					tooltipG.style('display',null);	
 				})
 				.on('mouseout',function(d){
 					tooltipG.style('display','none');
 					tooltip.style('opacity',0);
 				})
 				.on('mousemove',function(e){
-					if(!end || symbolArr.length === 0){
+					if(symbolArr.length === 0){
 						return;
 						//if no end,the tooltip will not be used
 					}

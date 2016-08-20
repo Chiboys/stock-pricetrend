@@ -9,7 +9,7 @@ var message =document.getElementById('message');
 var width = 800;
 var height = 600;
 var margin = {
-		top:10,right:200,bottom:10,left:200
+		top:30,right:200,bottom:10,left:200
 	};
 var padding = {
 		top:50,right:100,bottom:50,left:100
@@ -19,11 +19,12 @@ var svg = d3.select('svg')
 	.attr('height',height);
 var chartW = width - padding.left - padding.right;
 var chartH = height - padding.top - padding.bottom;
+var tooltipG = svg.append('g');
 var axisG = svg.append('g');
 var chartG = svg.append('g');
 var axisXG = axisG.append('g');
 var axisYG = axisG.append('g');
-var tooltipG = svg.append('g');
+
 		//define the axis
 		var dateN = new Date();//now time
 		var yearB = dateN.getFullYear()-1;
@@ -94,15 +95,18 @@ var color = d3.schemaCategory20;var ordinal = 1;
 				.attr('id','felling')
 				.attr('transform','translate('+padding.left+','+padding.top+')')
 				.on('mouseover',function(d){
-					tooltipG.style('display',null);															
-					tooltip.style('opacity',0.8);
+					if(symbolArr.length === 0){
+						return;
+						//if no end,the tooltip will not be used
+					}
+					tooltipG.style('display',null);	
 				})
 				.on('mouseout',function(d){
 					tooltipG.style('display','none');
 					tooltip.style('opacity',0);
 				})
 				.on('mousemove',function(e){
-					if(!end || symbolArr.length === 0){
+					if(symbolArr.length === 0){
 						return;
 						//if no end,the tooltip will not be used
 					}
@@ -137,7 +141,7 @@ var color = d3.schemaCategory20;var ordinal = 1;
 					}else{
 						tooltip.style('top',(event.y+50)+'px');
 					}
-					
+					tooltip.style('opacity',0.8);
 				});
 		//first the line and circle
 	/*********************/

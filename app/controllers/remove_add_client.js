@@ -2,6 +2,9 @@ function add(e){
 	e.preventDefault();
 	var symbol = input.value;
 	input.value = '';
+	if(symbol === '' || symbol.trim() === ''){
+		return ;
+	}
 	message.innerHTML = '';
 	if(symbolArr.indexOf(symbol) !== -1){
 		message.innerHTML = 'the stock has exist.';
@@ -16,9 +19,13 @@ function add(e){
 }
 addBut.firstChild.addEventListener('submit',add);
 function delet(id){
+	id = id.replace('_inf','');
+	if(symbolArr.indexOf(id) === -1){
+		return delet_content(id);		
+		
+	}
 	//delet_content(id)
 	delete cache[id];
-	id = id.replace('_inf','');
 	symbolArr.splice(symbolArr.indexOf(id),1);
 	//remove the symbol in db
 	//set click on span element
@@ -35,5 +42,9 @@ function delet_content(id){
 		var g = document.getElementById(id);
 		(g.parentNode).removeChild(g);
 		(div.parentNode).removeChild(div);
+		if(symbolArr.indexOf(id) !== -1){
+			symbolArr.splice(symbolArr.indexOf(id),1);		
+		
+		}
 		
 }

@@ -17,7 +17,9 @@ var ajaxFunctions = {
 				//if null,will skip the callback.
 				if(data.value === null){
 					message.innerHTML = data.message;
+					end = false;
 					return console.log('the request returns the information : return null at ajaxFunctions_client.js');
+
 				}else{
 					//when data.value is array,send arr to callback
 						callback(data.value);

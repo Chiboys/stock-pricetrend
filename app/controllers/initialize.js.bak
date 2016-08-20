@@ -22,7 +22,7 @@ socket.on('addNewStock',function(json){
 	//json = JSON.parse(json);
 	chart(json);
 });
+ajaxFunctions.ready(initialize);
 socket.on('delete stocks',function(symbol){
 	delet_content(symbol+'_inf')
 });
-ajaxFunctions.ready(initialize);
