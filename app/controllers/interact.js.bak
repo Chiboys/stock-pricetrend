@@ -7,7 +7,6 @@ module.exports = function(){
 		function callback(result){
 			stock.stockName = req.query.symbol;
 			//stock.ip = req.headers["x-forwarded-for"];
-			console.log(typeof result);
 			socket.emit('addNewStock',result);
 			stock.save(function(err){
 				if(err){ throw err;}

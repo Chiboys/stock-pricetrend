@@ -19,11 +19,12 @@ function add(e){
 }
 addBut.firstChild.addEventListener('submit',add);
 function delet(id){
-	id = id.replace('_inf','');
-	if(symbolArr.indexOf(id) === -1){
+	
+	if(symbolArr.indexOf(id.replace('_inf','')) === -1){
 		return delet_content(id);		
 		
 	}
+	id = id.replace('_inf','');
 	//delet_content(id)
 	delete cache[id];
 	symbolArr.splice(symbolArr.indexOf(id),1);
