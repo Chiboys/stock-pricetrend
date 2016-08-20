@@ -21,7 +21,11 @@ module.exports = function(){
 		Stock.findOneAndRemove({'stockName':req.query.symbol},{'passRawResult':false},function(err,doc){
 			if(err){ throw err;}
 			//特定情况，这里删除的一定是有的，这是由前端决定的。
-			//console.log('the stock: '+doc.stockName+" has been deleted.");
+			if(doc === null){
+				res.json({value:null,message:'the stock has deleted successfully.'});
+				return console.log('the stock: null. has been deleted.');
+			}
+			console.log('the stock: '+doc.stockName+" has been deleted.");
 			res.json({value:doc.stockName,message:'the stock has deleted successfully.'})
 		});
 		socket.emit('delete stocks',req.query.symbol);

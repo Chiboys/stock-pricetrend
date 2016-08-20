@@ -5,6 +5,7 @@ function add(e){
 	if(symbol === '' || symbol.trim() === ''){
 		return ;
 	}
+	symbol = symbol.toUpperCase();
 	message.innerHTML = '';
 	if(symbolArr.indexOf(symbol) !== -1){
 		message.innerHTML = 'the stock has exist.';
@@ -14,7 +15,7 @@ function add(e){
 		console.log('the stock (whose symbole is '+json +') added successfully');
 	}
 	console.log('ready to add the symbol '+symbol+'to db');
-	var url = '/add?symbol='+symbol+'&start_date='+dateB+'&end_date='+dateN;
+	var url = '/add?symbol='+symbol.toUpperCase()+'&start_date='+dateB+'&end_date='+dateN;
 	ajaxFunctions.request('put',url,callback);
 }
 addBut.firstChild.addEventListener('submit',add);
@@ -42,6 +43,10 @@ function delet_content(id){
 		id = id.replace('_inf','');
 		var g = document.getElementById(id);
 		(g.parentNode).removeChild(g);
+		var circle = document.getElementById(id+'circle');
+		(circle.parentNode).removeChild(circle);
+		var text = document.getElementById(id+'_tool');
+		(text.parentNode).removeChild(text);
 		(div.parentNode).removeChild(div);
 		if(symbolArr.indexOf(id) !== -1){
 			symbolArr.splice(symbolArr.indexOf(id),1);		

@@ -5,6 +5,7 @@ function add(e){
 	if(symbol === '' || symbol.trim() === ''){
 		return ;
 	}
+	symbol = symbol.toUpperCase();
 	message.innerHTML = '';
 	if(symbolArr.indexOf(symbol) !== -1){
 		message.innerHTML = 'the stock has exist.';
@@ -42,8 +43,10 @@ function delet_content(id){
 		id = id.replace('_inf','');
 		var g = document.getElementById(id);
 		(g.parentNode).removeChild(g);
-		var circle = document.getElementById('#'+ele+'circle');
+		var circle = document.getElementById(id+'circle');
 		(circle.parentNode).removeChild(circle);
+		var text = document.getElementById(id+'_tool');
+		(text.parentNode).removeChild(text);
 		(div.parentNode).removeChild(div);
 		if(symbolArr.indexOf(id) !== -1){
 			symbolArr.splice(symbolArr.indexOf(id),1);		
