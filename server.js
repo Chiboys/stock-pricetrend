@@ -29,7 +29,7 @@ io.on('connection',function(socket){
 	route(app,io);
 });
 
-var port = 8080||process.env.PORT;
+var port = process.env.PORT||8080;
 http.listen(port,function(){
 	console.log('listen on port : '+port);
 });
