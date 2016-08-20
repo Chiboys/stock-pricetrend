@@ -20,7 +20,7 @@ function add(e){
 addBut.firstChild.addEventListener('submit',add);
 function delet(id){
 	
-	if(symbolArr.indexOf(id) === -1){
+	if(symbolArr.indexOf(id.replace('_inf','')) === -1){
 		return delet_content(id);		
 		
 	}

@@ -42,6 +42,8 @@ function delet_content(id){
 		id = id.replace('_inf','');
 		var g = document.getElementById(id);
 		(g.parentNode).removeChild(g);
+		var circle = document.getElementById('#'+ele+'circle');
+		(circle.parentNode).removeChild(circle);
 		(div.parentNode).removeChild(div);
 		if(symbolArr.indexOf(id) !== -1){
 			symbolArr.splice(symbolArr.indexOf(id),1);		
